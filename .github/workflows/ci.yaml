@@ -9,15 +9,15 @@ on:
 
 jobs:
   build_and_push:
-    runs-on: ubuntu-latest
+    runs-on:  ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
       - name: Set Short SHA
-        run: |
+        run:  |
           echo "SHORT:SHA=$(echo ${GITHUB_SHA} | cut -c1-7" >> $GITHUB_ENV
       - name: Build Docker image
-        run: |
+        run:  |
           docker build -t mosesade/complete-devops-project:${{ env.SHORT_SHA }} .
       - name: Login to Dockerhub
         run:  |
